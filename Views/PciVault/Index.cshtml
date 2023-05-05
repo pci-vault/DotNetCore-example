@@ -10,13 +10,16 @@
     <script src="https://api-stage.pcivault.io/pcd/pcd_form.js"></script>
 }
 
-<h2>@Model.Secret</h2>
+<h2>Credit Card Form</h2>
 
 <div id="pcd_form"></div>
 
 <script defer>
+    const model = @Html.Raw(Json.Serialize(Model));
+    console.log(model)
+
     window.pcd_form(document.getElementById("pcd_form"), {
-        submit_secret: "your_secret_here",
-        submit_url: "/v1/capture/demo",
+        submit_secret: model.secret,
+        submit_url: model.url,
     })
 </script>
