@@ -16,7 +16,6 @@
 
 <script defer>
     const model = @Html.Raw(Json.Serialize(Model));
-    console.log(model)
 
     window.pcd_form(document.getElementById("pcd_form"), {
         submit_secret: model.secret,
